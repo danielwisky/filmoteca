@@ -1,3 +1,16 @@
-# sistema-saude
+# filmoteca
 
-Projeto criado para o treinamento de Apache Kafka
+Gerando o pacote da filmoteca
+```
+mvn package
+```
+
+Criando docker image da filmoteca
+```
+docker build -t danielwisky/filmoteca .
+```
+
+Deploy da filmoteca usando docker compose
+```
+docker-compose up
+```

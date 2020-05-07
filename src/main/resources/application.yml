@@ -6,4 +6,4 @@ spring:
     name: filmoteca
   data:
     mongodb:
-      uri: mongodb://localhost:27017/filmoteca
+      uri: mongodb://mongodb:27017/filmoteca
