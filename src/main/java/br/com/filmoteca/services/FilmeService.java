@@ -2,11 +2,12 @@ package br.com.filmoteca.services;
 
 import br.com.filmoteca.domains.Filme;
 import br.com.filmoteca.domains.NivelCensura;
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface FilmeService {
 
   Filme salvar(Filme filme);
 
-  List<Filme> buscar(NivelCensura nivelCensura);
+  Page<Filme> buscar(NivelCensura nivelCensura, Pageable pageable);
 }
