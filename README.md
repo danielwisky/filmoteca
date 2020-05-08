@@ -3,7 +3,7 @@
 API de filmes
 
 ##### Tecnologias
-* Java 13
+* JDK 13
 * Spring Boot
 * Spring Data MongoDB
 * Docker

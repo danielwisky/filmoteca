@@ -48,12 +48,12 @@ public class FilmeControllerTest extends TestContainerSupport {
   @Test
   public void deveCriarUmFilme() {
 
-    FilmeRequest filmeRequest = from(FilmeRequest.class).gimme(VALID.name());
+    final FilmeRequest filmeRequest = from(FilmeRequest.class).gimme(VALID.name());
 
     final ResponseEntity<FilmeResponse> response =
         filmeController.criarFilme(filmeRequest);
 
-    FilmeResponse filmeResponse = response.getBody();
+    final FilmeResponse filmeResponse = response.getBody();
 
     assertNotNull(filmeResponse);
     assertNotNull(filmeResponse.getId());
@@ -63,18 +63,18 @@ public class FilmeControllerTest extends TestContainerSupport {
   @Test(expected = BusinessLogicException.class)
   public void deveValidarFilmeNomeExistente() {
 
-    Filme filme = from(Filme.class).gimme(VALID_THOR.name());
+    final Filme filme = from(Filme.class).gimme(VALID_THOR.name());
     mongoTemplate.save(filme);
 
-    FilmeRequest filmeRequest = from(FilmeRequest.class).gimme(VALID_THOR.name());
+    final FilmeRequest filmeRequest = from(FilmeRequest.class).gimme(VALID_THOR.name());
 
     filmeController.criarFilme(filmeRequest);
   }
 
   public void deveBuscarPorNivelCensura() {
 
-    Filme filmeCensurado = from(Filme.class).gimme(VALID_CENSURADO.name());
-    Filme filmeSemCensura = from(Filme.class).gimme(VALID_SEM_CENSURA.name());
+    final Filme filmeCensurado = from(Filme.class).gimme(VALID_CENSURADO.name());
+    final Filme filmeSemCensura = from(Filme.class).gimme(VALID_SEM_CENSURA.name());
     mongoTemplate.save(filmeCensurado);
     mongoTemplate.save(filmeSemCensura);
 
@@ -90,7 +90,7 @@ public class FilmeControllerTest extends TestContainerSupport {
   @Test
   public void deveBuscarSemNivelCensura() {
 
-    Filme filme = from(Filme.class).gimme(VALID_THOR.name());
+    final Filme filme = from(Filme.class).gimme(VALID_THOR.name());
     mongoTemplate.save(filme);
 
     final ResponseEntity<PageFilmeResponse> response =

@@ -47,7 +47,7 @@ public class FilmeServiceImplTest {
 
   @Test
   public void deveSalvarOFilme() {
-    Filme filme = from(Filme.class).gimme(VALID.name());
+    final Filme filme = from(Filme.class).gimme(VALID.name());
 
     filmeService.salvar(filme);
 
@@ -56,7 +56,7 @@ public class FilmeServiceImplTest {
 
   @Test(expected = BusinessLogicException.class)
   public void deveValidarNomeExistente() {
-    Filme filme = from(Filme.class).gimme(VALID.name());
+    final Filme filme = from(Filme.class).gimme(VALID.name());
 
     when(filmeRepository.existsByNome(filme.getNome())).thenReturn(true);
 
@@ -68,14 +68,14 @@ public class FilmeServiceImplTest {
   @Test
   public void deveBuscarPorNivelCensura() {
 
-    List<Filme> filmes = from(Filme.class).gimme(10, VALID.name());
-    NivelCensura censurado = NivelCensura.CENSURADO;
-    PageRequest pageRequest = PageRequest.of(0, 20);
+    final List<Filme> filmes = from(Filme.class).gimme(10, VALID.name());
+    final NivelCensura censurado = NivelCensura.CENSURADO;
+    final PageRequest pageRequest = PageRequest.of(0, 20);
 
     when(filmeRepository.findByNivelCensura(censurado, pageRequest))
         .thenReturn(new PageImpl<>(filmes));
 
-    Page<Filme> page = filmeService.buscar(censurado, pageRequest);
+    final Page<Filme> page = filmeService.buscar(censurado, pageRequest);
 
     assertNotNull(page);
     assertEquals(page.getTotalElements(), filmes.size());
@@ -86,13 +86,13 @@ public class FilmeServiceImplTest {
   @Test
   public void deveBuscarSemNivelCensura() {
 
-    List<Filme> filmes = from(Filme.class).gimme(10, VALID.name());
-    PageRequest pageRequest = PageRequest.of(0, 20);
+    final List<Filme> filmes = from(Filme.class).gimme(10, VALID.name());
+    final PageRequest pageRequest = PageRequest.of(0, 20);
 
     when(filmeRepository.findAll(pageRequest))
         .thenReturn(new PageImpl<>(filmes));
 
-    Page<Filme> page = filmeService.buscar(null, pageRequest);
+    final Page<Filme> page = filmeService.buscar(null, pageRequest);
 
     assertNotNull(page);
     assertEquals(page.getTotalElements(), filmes.size());
