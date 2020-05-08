@@ -21,6 +21,8 @@
     <commons-lang3.version>3.10</commons-lang3.version>
     <fixture-factory.version>3.1.0</fixture-factory.version>
     <mockito-core.version>3.3.3</mockito-core.version>
+    <jacoco-plugin.version>0.8.5</jacoco-plugin.version>
+    <testcontainers.version>1.12.4</testcontainers.version>
   </properties>
 
   <dependencies>
@@ -55,6 +57,11 @@
 
     <!-- Test -->
     <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>br.com.six2six</groupId>
       <artifactId>fixture-factory</artifactId>
       <version>${fixture-factory.version}</version>
@@ -66,15 +73,17 @@
       <version>${mockito-core.version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>testcontainers</artifactId>
+      <version>${testcontainers.version}</version>
+      <scope>test</scope>
+    </dependency>
 
   </dependencies>
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -83,6 +92,69 @@
           <source>13</source>
           <target>13</target>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+
+      <!-- coverage -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${jacoco-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>jacoco-site</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>jacoco-check</id>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <rule>
+                  <element>CLASS</element>
+                  <limits>
+                    <limit>
+                      <counter>LINE</counter>
+                      <value>COVEREDRATIO</value>
+                      <minimum>1.00</minimum>
+                    </limit>
+                  </limits>
+                  <excludes>
+                    <!-- COMMON COVERAGE EXCLUSIONS -->
+                    <exclude>**.configurations.**</exclude>
+                    <exclude>**.domains.**</exclude>
+                    <exclude>**.resources.**</exclude>
+
+                    <exclude>br.com.filmoteca.Application</exclude>
+                    <exclude>br.com.filmoteca.controllers.CustomExceptionHandler</exclude>
+                  </excludes>
+                </rule>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

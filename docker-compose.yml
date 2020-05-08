@@ -9,7 +9,7 @@ services:
     links:
       - mongodb
   mongodb:
-    image: mongo:3.2.4
+    image: mongo:3.6.1
     container_name: "filmoteca-mongodb"
     ports:
       - 27017:27017
