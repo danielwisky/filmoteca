@@ -1,6 +1,6 @@
 package br.com.filmoteca.services.impl;
 
-import static br.com.filmoteca.templates.FixtureCoreTemplates.VALID;
+import static br.com.filmoteca.templates.FixtureCoreTemplates.VALIDO;
 import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -47,7 +47,7 @@ public class FilmeServiceImplTest {
 
   @Test
   public void deveSalvarOFilme() {
-    final Filme filme = from(Filme.class).gimme(VALID.name());
+    final Filme filme = from(Filme.class).gimme(VALIDO.name());
 
     filmeService.salvar(filme);
 
@@ -56,7 +56,7 @@ public class FilmeServiceImplTest {
 
   @Test(expected = BusinessLogicException.class)
   public void deveValidarNomeExistente() {
-    final Filme filme = from(Filme.class).gimme(VALID.name());
+    final Filme filme = from(Filme.class).gimme(VALIDO.name());
 
     when(filmeRepository.existsByNome(filme.getNome())).thenReturn(true);
 
@@ -68,7 +68,7 @@ public class FilmeServiceImplTest {
   @Test
   public void deveBuscarPorNivelCensura() {
 
-    final List<Filme> filmes = from(Filme.class).gimme(10, VALID.name());
+    final List<Filme> filmes = from(Filme.class).gimme(10, VALIDO.name());
     final NivelCensura censurado = NivelCensura.CENSURADO;
     final PageRequest pageRequest = PageRequest.of(0, 20);
 
@@ -86,7 +86,7 @@ public class FilmeServiceImplTest {
   @Test
   public void deveBuscarSemNivelCensura() {
 
-    final List<Filme> filmes = from(Filme.class).gimme(10, VALID.name());
+    final List<Filme> filmes = from(Filme.class).gimme(10, VALIDO.name());
     final PageRequest pageRequest = PageRequest.of(0, 20);
 
     when(filmeRepository.findAll(pageRequest))

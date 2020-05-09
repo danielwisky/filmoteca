@@ -1,7 +1,7 @@
 package br.com.filmoteca.container;
 
-import static br.com.filmoteca.templates.FixtureCoreTemplates.VALID;
-import static br.com.filmoteca.templates.FixtureCoreTemplates.VALID_THOR;
+import static br.com.filmoteca.templates.FixtureCoreTemplates.VALIDO;
+import static br.com.filmoteca.templates.FixtureCoreTemplates.VALIDO_THOR;
 import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -43,7 +43,7 @@ public class CriarFilmeTest extends TestContainerSupport {
   @Test
   public void deveCriarUmFilme() {
 
-    final FilmeRequest filmeRequest = from(FilmeRequest.class).gimme(VALID.name());
+    final FilmeRequest filmeRequest = from(FilmeRequest.class).gimme(VALIDO.name());
 
     final ResponseEntity<FilmeResponse> response =
         filmeController.criarFilme(filmeRequest);
@@ -58,10 +58,10 @@ public class CriarFilmeTest extends TestContainerSupport {
   @Test(expected = BusinessLogicException.class)
   public void deveValidarFilmeNomeExistente() {
 
-    final Filme filme = from(Filme.class).gimme(VALID_THOR.name());
+    final Filme filme = from(Filme.class).gimme(VALIDO_THOR.name());
     mongoTemplate.save(filme);
 
-    final FilmeRequest filmeRequest = from(FilmeRequest.class).gimme(VALID_THOR.name());
+    final FilmeRequest filmeRequest = from(FilmeRequest.class).gimme(VALIDO_THOR.name());
 
     filmeController.criarFilme(filmeRequest);
   }

@@ -1,8 +1,8 @@
 package br.com.filmoteca.container;
 
-import static br.com.filmoteca.templates.FixtureCoreTemplates.VALID_CENSURADO;
-import static br.com.filmoteca.templates.FixtureCoreTemplates.VALID_SEM_CENSURA;
-import static br.com.filmoteca.templates.FixtureCoreTemplates.VALID_THOR;
+import static br.com.filmoteca.templates.FixtureCoreTemplates.VALIDO_CENSURADO;
+import static br.com.filmoteca.templates.FixtureCoreTemplates.VALIDO_SEM_CENSURA;
+import static br.com.filmoteca.templates.FixtureCoreTemplates.VALIDO_THOR;
 import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -44,10 +44,10 @@ public class BuscarFilmeTest extends TestContainerSupport {
   @Test
   public void deveBuscarPorNivelCensura() {
 
-    final Filme filmeCensurado = from(Filme.class).gimme(VALID_CENSURADO.name());
+    final Filme filmeCensurado = from(Filme.class).gimme(VALIDO_CENSURADO.name());
     mongoTemplate.save(filmeCensurado);
 
-    final Filme filmeSemCensura = from(Filme.class).gimme(VALID_SEM_CENSURA.name());
+    final Filme filmeSemCensura = from(Filme.class).gimme(VALIDO_SEM_CENSURA.name());
     mongoTemplate.save(filmeSemCensura);
 
     final ResponseEntity<PageFilmeResponse> response =
@@ -62,7 +62,7 @@ public class BuscarFilmeTest extends TestContainerSupport {
   @Test
   public void deveBuscarSemNivelCensura() {
 
-    final Filme filme = from(Filme.class).gimme(VALID_THOR.name());
+    final Filme filme = from(Filme.class).gimme(VALIDO_THOR.name());
     mongoTemplate.save(filme);
 
     final ResponseEntity<PageFilmeResponse> response =
