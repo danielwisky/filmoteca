@@ -3,4 +3,4 @@ spring:
     name: filmoteca
   data:
     mongodb:
-      uri: mongodb://localhost:27017/filmoteca
+      uri: ${MONGODB_URI}

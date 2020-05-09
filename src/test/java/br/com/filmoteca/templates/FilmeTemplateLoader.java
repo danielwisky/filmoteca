@@ -19,7 +19,6 @@ public class FilmeTemplateLoader implements TemplateLoader {
   public void load() {
     Fixture.of(Filme.class).addTemplate(VALID.name(), new Rule() {
       {
-        add("id", "5eb380f3a8cce839e09d504f");
         add("nome",
             random("Thor: Ragnarok", "Capitão América: Guerra Civil", "Vingadores: Ultimato"));
         add("dataLancamento", LocalDate.now());
