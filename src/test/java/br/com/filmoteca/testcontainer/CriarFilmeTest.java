@@ -1,4 +1,4 @@
-package br.com.filmoteca.container;
+package br.com.filmoteca.testcontainer;
 
 import static br.com.filmoteca.templates.FixtureCoreTemplates.VALIDO;
 import static br.com.filmoteca.templates.FixtureCoreTemplates.VALIDO_THOR;
@@ -6,7 +6,7 @@ import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import br.com.filmoteca.container.support.TestContainerSupport;
+import br.com.filmoteca.testcontainer.support.TestContainerSupport;
 import br.com.filmoteca.controllers.FilmeController;
 import br.com.filmoteca.controllers.resources.request.FilmeRequest;
 import br.com.filmoteca.controllers.resources.response.FilmeResponse;

@@ -1,4 +1,4 @@
-package br.com.filmoteca.container;
+package br.com.filmoteca.testcontainer;
 
 import static br.com.filmoteca.templates.FixtureCoreTemplates.VALIDO_CENSURADO;
 import static br.com.filmoteca.templates.FixtureCoreTemplates.VALIDO_SEM_CENSURA;
@@ -7,7 +7,7 @@ import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import br.com.filmoteca.container.support.TestContainerSupport;
+import br.com.filmoteca.testcontainer.support.TestContainerSupport;
 import br.com.filmoteca.controllers.FilmeController;
 import br.com.filmoteca.controllers.resources.response.PageFilmeResponse;
 import br.com.filmoteca.domains.Filme;
