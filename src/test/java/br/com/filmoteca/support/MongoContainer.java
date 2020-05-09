@@ -1,4 +1,4 @@
-package br.com.filmoteca.testcontainer.support;
+package br.com.filmoteca.support;
 
 import static java.lang.String.format;
 

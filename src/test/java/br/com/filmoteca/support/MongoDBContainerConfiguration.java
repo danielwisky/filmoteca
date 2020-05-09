@@ -1,4 +1,4 @@
-package br.com.filmoteca.testcontainer.support;
+package br.com.filmoteca.support;
 
 public class MongoDBContainerConfiguration extends MongoContainer {
 

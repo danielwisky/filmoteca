@@ -1,4 +1,4 @@
-package br.com.filmoteca.testcontainer.support;
+package br.com.filmoteca.support;
 
 import br.com.filmoteca.Application;
 import org.junit.runner.RunWith;

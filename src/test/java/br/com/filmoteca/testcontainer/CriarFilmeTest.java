@@ -6,12 +6,12 @@ import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import br.com.filmoteca.testcontainer.support.TestContainerSupport;
 import br.com.filmoteca.controllers.FilmeController;
 import br.com.filmoteca.controllers.resources.request.FilmeRequest;
 import br.com.filmoteca.controllers.resources.response.FilmeResponse;
 import br.com.filmoteca.domains.Filme;
 import br.com.filmoteca.domains.exception.BusinessLogicException;
+import br.com.filmoteca.support.TestContainerSupport;
 import br.com.six2six.fixturefactory.loader.FixtureFactoryLoader;
 import org.junit.Before;
 import org.junit.BeforeClass;
