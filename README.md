@@ -19,8 +19,8 @@ Todas as mensagens de erro são retornadas no padrão:
 
 * [Java 13](https://www.java.com/pt_BR/)
 * [Spring Boot 2.2.6](http://spring.io/projects/spring-boot)
-* [MongoDB](https://www.mongodb.com/)
-* [SpringFox](http://springfox.github.io/springfox/)
+* [MongoDB](https://www.mongodb.com/) NoSQL Database
+* [SpringFox](http://springfox.github.io/springfox/) API com Swagger
 * [Docker](https://www.docker.com/)
 
 ## Requisitos para executar a filmoteca
