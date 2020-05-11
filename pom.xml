@@ -20,7 +20,8 @@
     <springfox.swagger.version>2.9.2</springfox.swagger.version>
     <commons-lang3.version>3.10</commons-lang3.version>
     <fixture-factory.version>3.1.0</fixture-factory.version>
-    <mockito-core.version>3.3.3</mockito-core.version>
+    <mockito-core.version>3.3.3</mockito-core.version>¬
+    <pitest-plugin.version>1.4.3</pitest-plugin.version>
     <jacoco-plugin.version>0.8.5</jacoco-plugin.version>
     <testcontainers.version>1.12.4</testcontainers.version>
   </properties>
@@ -79,12 +80,10 @@
       <version>${testcontainers.version}</version>
       <scope>test</scope>
     </dependency>
-
   </dependencies>
 
   <build>
     <plugins>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -99,7 +98,21 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
 
-      <!-- coverage -->
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>${pitest-plugin.version}</version>
+        <configuration>
+          <targetClasses>
+            <param>br.com.filmoteca.services.*</param>
+          </targetClasses>
+          <targetTests>
+            <param>br.com.filmoteca.services.*</param>
+          </targetTests>
+          <failWhenNoMutations>false</failWhenNoMutations>
+          <mutationThreshold>0</mutationThreshold>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
