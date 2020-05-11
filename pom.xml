@@ -20,7 +20,7 @@
     <springfox.swagger.version>2.9.2</springfox.swagger.version>
     <commons-lang3.version>3.10</commons-lang3.version>
     <fixture-factory.version>3.1.0</fixture-factory.version>
-    <mockito-core.version>3.3.3</mockito-core.version>¬
+    <mockito-core.version>3.3.3</mockito-core.version>
     <pitest-plugin.version>1.4.3</pitest-plugin.version>
     <jacoco-plugin.version>0.8.5</jacoco-plugin.version>
     <testcontainers.version>1.12.4</testcontainers.version>
