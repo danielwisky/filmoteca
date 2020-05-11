@@ -1,4 +1,4 @@
-# filmoteca
+# API Filmoteca
 
 A filmoteca é uma API de filmes, criada com Spring Boot utilizando um banco de dados NoSQL MongoDB.
 
